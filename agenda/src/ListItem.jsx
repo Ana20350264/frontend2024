@@ -12,4 +12,5 @@ const ListItem = ({persona})=>{
     )
 }
 
+
 export default ListItem

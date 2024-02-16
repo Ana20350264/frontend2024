@@ -20,6 +20,7 @@ const personas = [
     telefono:'287 139 5120',
   },
 ]
+
 function App() {
 
   return (
