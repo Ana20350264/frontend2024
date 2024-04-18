@@ -4,7 +4,8 @@ const inputsData = {
   username: "",
   password: "",
   option: "",
-  checkboxOption: []
+  checkboxOption: [],
+  restrictedInput: ""
 };
 
 function App() {
@@ -193,11 +194,12 @@ function App() {
       <hr />
       <input type="number" id="number" name="number" />
 
+{/* ########### REVISAR ############ */}
       <br />      <br /> <br />
       <h3>Input Restrictions</h3>
       <hr />
         <label htmlFor="quantity">Cantidad:</label>
-        <input type="number" id="quantity" name="quantity" min="0" max="10" step="2" value="10" />
+        <input type="number" id="quantity" name="quantity" min="0" max="10" step="2" value={inputsData.restrictedInput} />
 
       <br /> <br /> <br />
       <h3>Input Type Range</h3>
