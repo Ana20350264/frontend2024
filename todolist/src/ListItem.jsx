@@ -1,30 +1,26 @@
 import ShowItemModal from "./ShowItemModal"
 
-const ListItem = ({task, limit}) => {
+const ListItem = ({task}) => {
 return(
     <>
-    <div className="row m-2">
+    <div className="row">
         <div className="col-6">
-          <ShowItemModal/>
+          <ShowItemModal task={task}/>
+          <input type="checkbox"/>
             <button
             className="btn bt n-link"
-            data-bs-target="#showItemModal"
+            data-bs-target={"#showItemModal"+task.id}
             data-bs-toggle="modal">
-            {task}
+            {task.task}
           </button>
         </div>
 
-        <div className="col-2">
-          {limit} 
+        <div className="col-3">
+          {task.limit} 
         </div>
 
         <div className="col">
-          <button className="btn btn-sm btn-primary">
-            <i className="bi bi-pencil-square"></i>
-            </button>
-          <button className="btn btn-sm btn-danger">
-            <i className="bi bi-trash"></i>
-            </button>
+          {task.location}
         </div>
         </div>
     </>
