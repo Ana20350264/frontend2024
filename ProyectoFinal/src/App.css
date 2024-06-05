@@ -1,0 +1,127 @@
+/* Estilos generales */
+body {
+  background-image: url('../public/fondo3.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.App {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 100px;
+  align-items: center;
+}
+
+#king {
+  width: 450px; /* Puedes ajustar este valor según tus necesidades */
+  height: auto; /* Esto mantiene la proporción original de la imagen */
+  padding-bottom: 50px;
+}
+
+.card-body {
+  text-align: center;
+  flex: 1 1 auto;
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  color: var(--bs-card-color);
+}
+
+/* Estilos para los botones */
+.sort-button {
+  background-color: #8b0000; /* Rojo carmesí oscuro */
+  color: #ffffff; /* Blanco */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.sort-button:hover {
+  background-color: #b30000; /* Rojo carmesí un poco más claro */
+}
+
+/* Estilos para los libros */
+.card {
+  background-color: #2d2d2d; /* Gris oscuro */
+  color: #ffffff; /* Blanco */
+  border: none;
+  width: 870px; /* Ancho fijo para cada tarjeta */
+  margin: 10px;
+
+}
+
+.card-title {
+  color: #ffffff; /* Blanco */
+}
+
+.card-body h6 {
+  color: #ffffff; /* Blanco */
+}
+
+.card-text {
+  color: #ffffff; /* Blanco */
+}
+
+.search-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilos para la paginación */
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0 5px;
+}
+
+.page-link {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #2d2d2d; /* Cambiar color de fondo */
+  color: #fff; /* Cambiar color del texto */
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  
+}
+
+.page-link:hover {
+  background-color: #b30000; /* Cambiar color de fondo al pasar el ratón */
+  color: #fff; /* Cambiar color del texto del enlace activo */
+}
+
+.page-item.active .page-link {
+  background-color: #b30000; /* Cambiar color de fondo del enlace activo */
+  color: #fff; /* Cambiar color del texto del enlace activo */
+  border-color: #8b0000;
+}
+
+.pagination {
+  --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(255, 0, 0, 0.25); /* Cambia el color a rojo */
+}
