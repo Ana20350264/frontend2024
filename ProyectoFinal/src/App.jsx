@@ -4,8 +4,6 @@ import './App.css';
 import BooksList from './components/BooksList';
 import Swal from 'sweetalert2';
 
-
-
 function App() {
   // Estados para almacenar los datos de los libros, el término de búsqueda, etc.
   const [books, setBooks] = useState([]);
@@ -86,13 +84,49 @@ function App() {
     localStorage.setItem('currentPage', pageNumber); // Guarda la página actual en localStorage
   };
 
+  // Función para manejar el evento onMouseOver y cambiar la imagen principal
+  const handleMouseOver = () => {
+    // Cambia la imagen principal al pasar el cursor sobre ella
+    document.getElementById('king').src = "/kinghead3.png";
+  };
+
+  // Función para manejar el evento onMouseOut y restaurar la imagen principal
+  const handleMouseOut = () => {
+    // Restaura la imagen principal al retirar el cursor
+    document.getElementById('king').src = "/kinghead2.png";
+  };
+
+    // Función para manejar el reinicio
+    const handleReset = () => {
+      setSearchTerm(''); // Reinicia el término de búsqueda
+      setBooks(originalBooks); // Restablece la lista de libros
+      setIsSortedAZ(false); // Restablece el estado de orden alfabético
+      setCurrentPage(1); // Regresa a la primera página
+      localStorage.removeItem('searchTerm'); // Elimina el término de búsqueda guardado en localStorage
+      localStorage.removeItem('currentPage'); // Elimina la página actual guardada en localStorage
+    };  
+
+      // Función para manejar la redirección hacia arriba
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className="container">
       {/* Contenedor principal */}
       <div className="App d-flex flex-column justify-content-center align-items-center">
         {/* Imagen principal */}
-        <img id='king' src="/kinghead2.png" alt="" />
-        
+        <img
+          id='king'
+          src="/kinghead2.png"
+          alt=""
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+          onClick={handleReset}
+        />        
         {/* Contenedor de búsqueda */}
         <div className="search-container">
           {/* Campo de entrada para buscar libros por título */}
@@ -112,7 +146,7 @@ function App() {
         <div className="books">
           {loading ? (
             // Mensaje de carga mientras se obtienen los datos
-            <div className="text-center my-5">Cargando...</div>
+            <div className="alert alert-light my-5">Cargando...</div>
           ) : error ? (
             // Mensaje de error si falla la obtención de datos
             <div className="alert alert-danger my-5">{error}</div>
@@ -136,6 +170,10 @@ function App() {
             </>
           )}
         </div>
+          {/* Botón para ir arriba */}
+          <button className="scroll-top-button" onClick={scrollToTop}>
+          <i className="bi bi-arrow-up-circle-fill"></i>
+        </button>
       </div>
     </div>
   );
